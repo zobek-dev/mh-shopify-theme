@@ -1,0 +1,15 @@
+{
+  "name": "mediahuella-theme-flow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "zip": "node src/tasks/zip.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "archiver": "^6.0.1"
+  }
+}

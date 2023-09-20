@@ -27,11 +27,28 @@
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
 
+    <!--Load scripts-->
+    <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
+
+    <!--Load Global styles-->
+    {{ 'main.css' | asset_url | stylesheet_tag }}
+
     {% render 'meta-tags' %}
-    
+
     {{ content_for_header }}
   </head>
   <body>
-    {{ content_for_layout }}
+    <a class="sr-only" href="#MainContent">
+      {{ 'accessibility.skip_to_text' | t }}
+    </a>
+
+    {% sections 'header-group' %}
+    <main id="MainContent">
+      {{ content_for_layout }}
+    </main>
+    <ul hidden class="sr-only">
+      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
+      <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
+    </ul>
   </body>
 </html>
